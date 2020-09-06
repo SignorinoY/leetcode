@@ -12,4 +12,3 @@ class Solution:
                 nums.pop(i)
         return len(nums)
 # @lc code=end
-
