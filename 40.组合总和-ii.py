@@ -10,12 +10,16 @@ class Solution:
         def dfs(target: int, start: int, path: list):
             if target < 0:
                 return
-            elif target == 0 and path not in ans:
+            elif target == 0:
                 ans.append(path)
                 return
+            prev = None
             for index, candidate in enumerate(candidates[start:]):
                 if target - candidate < 0:
                     break
+                elif candidate == prev:
+                    continue
+                prev = candidate
                 dfs(target - candidate, start + index + 1, path + [candidate])
         ans = []
         candidates = sorted(candidates)
